@@ -20,5 +20,10 @@ public class InputManager : MonoBehaviour
         {
             currentGun.Stop();
         }
+
+        if(Input.GetButton("Jump")){
+            currentGun.Shoot();
+        }
+
     }
 }
