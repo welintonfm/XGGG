@@ -4,25 +4,47 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public GunBehavior currentGun;
-
+    bool shiftedPlanet;
+    float verticalInput, horizontalInput;
     void Update()
     {
-        if (Input.GetAxis("Horizontal") > 0.1)
+        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        if (horizontalInput > 0.1)
         {
-            currentGun.MoveToRight();
+            GunController.MoveToRight();
         }
-        else if (Input.GetAxis("Horizontal") < -0.1)
+        else if (horizontalInput < -0.1)
         {
-            currentGun.MoveToLeft();
+            GunController.MoveToLeft();
         }
         else
         {
-            currentGun.Stop();
+            GunController.Stop();
         }
 
-        if(Input.GetButton("Jump")){
-            currentGun.Shoot();
+        if (Input.GetButton("Jump"))
+        {
+            GunController.Shoot();
+        }
+
+
+        if (verticalInput > 0.1)
+        {
+            if (!shiftedPlanet)
+                GunController.SwitchPlanet(verticalInput);
+            shiftedPlanet = true;
+        }
+        else if (verticalInput < -0.1)
+        {
+            if (!shiftedPlanet)
+                GunController.SwitchPlanet(verticalInput);
+            shiftedPlanet = true;
+        }
+        else
+        {
+            shiftedPlanet = false;
         }
 
     }

@@ -36,6 +36,12 @@ public class GunBehavior : MonoBehaviour
     float lifeTime = 5;
 
     Transform planetTransform;
+
+    public PlanetBehavior Planet{
+        get{
+            return planetTransform.GetComponent<PlanetBehavior>();
+        }
+    }
     GunState state;
     float nextFire;
 
