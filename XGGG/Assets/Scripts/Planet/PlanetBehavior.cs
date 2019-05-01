@@ -15,8 +15,7 @@ public class PlanetBehavior : MonoBehaviour
 
     float cTime;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Setup()
     {
         cTime = orbitProgress*orbitPeriod;
     }

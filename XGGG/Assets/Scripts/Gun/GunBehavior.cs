@@ -39,7 +39,7 @@ public class GunBehavior : MonoBehaviour
 
     public PlanetBehavior Planet{
         get{
-            return planetTransform.GetComponent<PlanetBehavior>();
+            return transform.parent.GetComponent<PlanetBehavior>();
         }
     }
     GunState state;
