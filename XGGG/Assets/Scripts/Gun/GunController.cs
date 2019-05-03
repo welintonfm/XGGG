@@ -7,7 +7,7 @@ public class GunController : MonoBehaviour
 {
     static GunController _instance;
 
-    static GunController Instance
+    public static GunController Instance
     {
         get
         {
@@ -27,7 +27,7 @@ public class GunController : MonoBehaviour
     GunBehavior currentGun;
     int gunIndex;
 
-    private void Start() {
+    public void Setup(){
         guns = new List<GunBehavior>(FindObjectsOfType<GunBehavior>());
         if(guns.Count == 0){
            throw new Exception("Theres no gun in scene!");
@@ -35,9 +35,7 @@ public class GunController : MonoBehaviour
         currentGun = guns[0];
         gunIndex = 0;
         currentGun.Planet.Select(true);
-
     }
-
 
     public static void MoveToLeft()
     {
