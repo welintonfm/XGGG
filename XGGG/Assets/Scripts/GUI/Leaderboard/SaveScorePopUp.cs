@@ -10,6 +10,7 @@ public class SaveScorePopUp : MonoBehaviour
     
 
     private void Start() {
+        scoreText.SetText(ScoreSystem.Instance.Score.ToString());
         input.Select();
     }
     void SaveScore()
@@ -23,7 +24,7 @@ public class SaveScorePopUp : MonoBehaviour
     private void Update() {
         if(Input.GetKeyDown(KeyCode.Return) && input.text.Length > 0){
             SaveScore();
-            this.gameObject.SetActive(false);
+            GetComponent<Animator>().SetTrigger("out");
         }
     }
 

@@ -3,9 +3,10 @@ using UnityEngine;
 using System.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using System;
 public static class Leaderboard
 {
+    public static event Action OnLeaderboardChange;
     static List<Score> scores;
 
     public static List<Score> Scores{
@@ -29,6 +30,9 @@ public static class Leaderboard
         scores = scores.OrderBy(x => x.value).Reverse().Take(10).ToList();
 
         Save();
+        if(OnLeaderboardChange != null){
+            OnLeaderboardChange.Invoke();
+        }
     }
 
     public static void Save()
