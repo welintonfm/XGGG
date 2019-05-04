@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8965181368687507303}
   - component: {fileID: 8965181368687507300}
   - component: {fileID: 8965181368687507301}
+  - component: {fileID: 6664224501440984393}
+  - component: {fileID: 6621688119139442165}
   m_Layer: 0
   m_Name: E2
   m_TagString: Untagged
@@ -123,9 +125,61 @@ MonoBehaviour:
   Speed: 10
   BulletRangeMin: 30
   BulletRangeMax: 40
-  CooldownTime: 0.1
+  CooldownTime: 0.22
   Target: {fileID: 0}
   starSeeker: 0
+--- !u!114 &6664224501440984393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8965181368687507298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0239226578d27b43a5ff2ac1b3a830e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1
+  slider: {fileID: 0}
+  currentHealth: 0
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8965181368687507301}
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!50 &6621688119139442165
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8965181368687507298}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8965181369267488872
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +227,6 @@ MonoBehaviour:
   fireRate: 0
   bulletPrefab: {fileID: 2977709874644914563, guid: 57faccbe6b78fca4abc759d925f6d730,
     type: 3}
-  firePower: 0.56
+  firePower: 2.15
   bulletSpeed: 59.8
   lifeTime: 5

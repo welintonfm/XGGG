@@ -48,7 +48,7 @@ public class LevelController : MonoBehaviour
                 }
             }
 
-            if(star.GetHealth() < 0){
+            if(star.GetHealth() == 0){
                 EndGame();
             }
         }

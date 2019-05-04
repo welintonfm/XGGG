@@ -93,6 +93,10 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
+    public void Die(){
+        Destroy(this.gameObject);
+    }
+
 
 
 }

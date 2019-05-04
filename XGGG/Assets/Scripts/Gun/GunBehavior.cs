@@ -98,7 +98,7 @@ public class GunBehavior : MonoBehaviour
         if (nextFire < Time.time)
         {
             BulletBehavior b = Instantiate(bulletPrefab, transform.position, Quaternion.identity, bulletBucket).GetComponent<BulletBehavior>();
-            b.Setup(transform.up, bulletSpeed, firePower, lifeTime);
+            b.Setup(transform.up, bulletSpeed, firePower, lifeTime, transform.parent);
             nextFire = Time.time + fireRate;
         }
     }
