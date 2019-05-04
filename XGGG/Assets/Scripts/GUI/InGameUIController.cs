@@ -42,6 +42,7 @@ public class InGameUIController : MonoBehaviour
                 ssPopUp.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
                 Instantiate(LeaderboardWindow, Vector3.zero, Quaternion.identity, canvas.transform);
+                Destroy(ssPopUp.gameObject);
                 ssPopUp = null;
             }
         }
