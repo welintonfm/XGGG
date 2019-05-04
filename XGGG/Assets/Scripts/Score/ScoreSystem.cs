@@ -4,7 +4,9 @@ using UnityEngine;
 using System;
 public class ScoreSystem : MonoBehaviour
 {
-    [SerializeField]int _score;
+
+    private bool running;
+    [SerializeField] int _score;
 
     public int Score
     {
@@ -44,18 +46,30 @@ public class ScoreSystem : MonoBehaviour
 
     void Update()
     {
-        if (nextTime < Time.time)
+        if (running)
         {
-            _score += 1;
-            nextTime = Time.time + rate;
+            if (nextTime < Time.time)
+            {
+                _score += 1;
+                nextTime = Time.time + rate;
+            }
         }
+
     }
 
-    public static void GainScore(int value){
+    public static void GainScore(int value)
+    {
         Instance._score += value;
     }
 
-    public static void LoseScore(int value){
+    public static void LoseScore(int value)
+    {
         Instance._score -= value;
     }
+
+    public void SetRunning(bool b){
+        running = b;
+        nextTime = Time.time + rate;
+    }
+
 }

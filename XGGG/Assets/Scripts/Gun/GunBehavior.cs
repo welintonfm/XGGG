@@ -29,7 +29,7 @@ public class GunBehavior : MonoBehaviour
     float firePower = 0;
 
     [SerializeField]
-    [Range(0, 10)]
+    [Range(0, 100)]
     float bulletSpeed = 0;
     [SerializeField]
     [Range(0, 10)]
