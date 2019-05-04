@@ -3,52 +3,100 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(GunBehavior))]
 public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private float Speed = 1.0f;
-    [SerializeField] private float RotationSpeed = 1.0f;
-    [SerializeField] private float BulletRange = 0.0f;
+    [SerializeField] private float BulletRangeMin = 0.0f;
+    [SerializeField] private float BulletRangeMax = 0.0f;
     [SerializeField] private float CooldownTime = 0.0f;
     [SerializeField] private Transform Target = null;
 
     private Quaternion lastRotation = new Quaternion();
     private float nextBullet = 0.0f;
 
+
+    public bool starSeeker = false;
+
+    private bool shooting;
+
+    GunBehavior myGun;
+
     void Awake()
-    { 
-        if (Target ==  null)
-            Debug.LogError("Missing Target Transform from a GameObject. Fill iTarget with sun object.");
+    {
+        myGun = GetComponentInChildren<GunBehavior>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        lastRotation = transform.rotation;
-        // Movement
-        transform.position = Vector3.MoveTowards(transform.position, Target.position, Speed * Time.deltaTime);
-
-        // TODO: Rotate it Properly
-        Vector3 vectorToTarget = Target.position - transform.position;
-        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-        Quaternion qt = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, qt, RotationSpeed * Time.deltaTime);
-
-        // It's on aim, on Range and Cooldown OK
-        if (lastRotation == transform.rotation && Vector3.Distance(Target.position, transform.position) <= BulletRange && nextBullet <= Time.time)
+        if (Target != null)
         {
-            // TODO: Create an instance of the projectile.
 
-            nextBullet = Time.time + CooldownTime;
+            // TODO: Rotate it Properly
+            Vector3 dir = Target.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 270;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+            // Movement
+
+            if (!shooting)
+            {
+                if (Vector3.Distance(Target.position, transform.position) >= BulletRangeMin)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, Target.position, Speed * Time.deltaTime);
+                }
+                else
+                {
+                    shooting = true;
+                }
+            }
+            else
+            {
+                if (Vector3.Distance(Target.position, transform.position) >= BulletRangeMax)
+                {
+                    shooting = false;
+                }
+
+                if (nextBullet <= Time.time)
+                {
+                    
+                    myGun.Shoot();
+                    nextBullet = Time.time + CooldownTime;
+                }
+            }
+
+        }
+        else
+        {
+            ChooseTarget();
+        }
+
+    }
+
+    void ChooseTarget()
+    {
+        if (starSeeker)
+        {
+            Target = LevelController.Instance.star.transform;
+        }
+        else
+        {
+            float dist = float.PositiveInfinity;
+            foreach (PlanetBehavior planet in LevelController.Instance.planets)
+            {
+                if (Vector3.Distance(transform.position, planet.transform.position) < dist)
+                {
+                    Target = planet.transform;
+                    dist = Vector3.Distance(transform.position, planet.transform.position);
+                }
+            }
         }
     }
 
-    /// <summary>
-    /// Change an enemy target.
-    /// </summary>
-    /// <param name="collision">Object returned by physics.</param>
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.transform != Target)
-            Target = collision.gameObject.transform;
+    public void Die(){
+        Destroy(this.gameObject);
     }
+
+
+
 }

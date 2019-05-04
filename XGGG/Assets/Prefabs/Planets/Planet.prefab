@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 685613850402965364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.08, y: 1.08, z: 1.08}
+  m_LocalScale: {x: 1.2936, y: 1.2936, z: 1.08}
   m_Children: []
   m_Father: {fileID: 1270953518685749956}
   m_RootOrder: 0
@@ -68,8 +68,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 7b8215e69b755044882d671f700d107e, type: 3}
-  m_Color: {r: 0.633499, g: 1, b: 0.5518868, a: 0.72156864}
+  m_Sprite: {fileID: 21300000, guid: 8256e9f697125bc49bc92fab62c9009e, type: 3}
+  m_Color: {r: 0.9952285, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -90,6 +90,9 @@ GameObject:
   - component: {fileID: 1270953518685749956}
   - component: {fileID: 1270953518685749957}
   - component: {fileID: 8919018766138624928}
+  - component: {fileID: 3706860474706967610}
+  - component: {fileID: 6215262961329498317}
+  - component: {fileID: -6965678417012203741}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Planet
@@ -150,8 +153,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b8215e69b755044882d671f700d107e, type: 3}
-  m_Color: {r: 0.10484158, g: 0.32646134, b: 0.7169812, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8256e9f697125bc49bc92fab62c9009e, type: 3}
+  m_Color: {r: 0.735849, g: 0.33378246, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -174,6 +177,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectIndicator: {fileID: 685613850402965364}
+  orbit:
+    xAxis: 17
+    yAxis: 7
+  orbitProgress: 0.649
+  orbitPeriod: 20
+--- !u!114 &3706860474706967610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270953518685749958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0239226578d27b43a5ff2ac1b3a830e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  slider: {fileID: 0}
+--- !u!58 &6215262961329498317
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270953518685749958}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4.4915533
+--- !u!50 &-6965678417012203741
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270953518685749958}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &1270953519364113870
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,8 +259,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270953519364113870}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.98, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 9.11, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1270953518685749956}
   m_RootOrder: 1
@@ -243,7 +302,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d412d70865063ce4ba73d8e3c903751f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c8a40e6925329148a25f66fb9bfba3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -266,10 +325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3e974253ba2f048836771da46078a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 3
-  fireRate: 0.1
-  bulletPrefab: {fileID: 2977709874644914563, guid: 107c1982fa02eff48a5e9318a6c58245,
+  rotateSpeed: 3.19
+  fireRate: 0.66
+  bulletPrefab: {fileID: 2977709874644914563, guid: 6dbbf6ab6eea4d143a220366f7b3f6fe,
     type: 3}
-  firePower: 3
-  bulletSpeed: 5
-  lifeTime: 5
+  firePower: 2.44
+  bulletSpeed: 74.2
+  lifeTime: 7.06

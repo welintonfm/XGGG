@@ -5,11 +5,14 @@ using System;
 using UnityEngine.Events;
 public class LevelController : MonoBehaviour
 {
+    public List<PlanetBehavior> planets;
+
+    public LifeBehaviour star;
     public UnityEvent OnStartGame;
     public UnityEvent OnEndGame;
     static LevelController _instance;
 
-    static LevelController Instance
+    public static LevelController Instance
     {
         get
         {
@@ -32,9 +35,30 @@ public class LevelController : MonoBehaviour
         SetupLevel();
     }
 
+    private void Update() {
+        if(GameRunnig){
+            for (int i = 0; i < planets.Count; i++)
+            {
+                if(planets[i].GetComponent<LifeBehaviour>().GetHealth() <= 0){
+                    planets.RemoveAt(i);
+                }
+
+                if(planets.Count  == 0){
+                    EndGame();
+                }
+            }
+
+            if(star.GetHealth() == 0){
+                EndGame();
+            }
+        }
+    }
+
     void SetupLevel(){
         SolarSystemGenerator.Instance.GenerateLevel();
         GunController.Instance.Setup();
+        this.planets = new List<PlanetBehavior>(FindObjectsOfType<PlanetBehavior>());
+        this.star = GameObject.FindGameObjectWithTag("Star").GetComponent<LifeBehaviour>();
     }
 
     public void StartGame(){
