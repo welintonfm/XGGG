@@ -46,4 +46,9 @@ public class LifeBehaviour : MonoBehaviour
         slider.value = currentHealth;
     }
 
+
+    public int GetHealth(){
+        return this.currentHealth;
+    }
+
 }
