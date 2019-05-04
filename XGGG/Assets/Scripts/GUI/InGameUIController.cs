@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class InGameUIController : MonoBehaviour
 {
 
     public Canvas canvas;
     public GameObject LeaderboardWindow;
     public GameObject SaveScorePopUp;
-
+    public TextMeshProUGUI scoreNumber;
 
 
     //Gamiarra show
@@ -46,6 +47,10 @@ public class InGameUIController : MonoBehaviour
                 ssPopUp = null;
             }
         }
+
+        scoreNumber.SetText(ScoreSystem.Instance.Score.ToString());
+
+
     }
 
 
