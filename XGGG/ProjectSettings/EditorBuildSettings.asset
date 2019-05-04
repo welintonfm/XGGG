@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: 11b5b9226675a384f99837ec76c5dd4f
+  - enabled: 1
+    path: Assets/Scenes/WyruDev.unity
+    guid: af43f6c38e596fe46a3cc0ddacfd796f
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: 4f632ee523f808b40a0ecdaa611c62e4
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 256a562f4e7929648817252a56b29e0d
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: 6ce2421254501104ba6d87f8ce301dfd
   m_configObjects: {}
