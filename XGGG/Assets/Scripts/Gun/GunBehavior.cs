@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GunBehavior : MonoBehaviour
 {
+    public UnityEvent OnShoot;
 
     enum GunState
     {
@@ -95,11 +97,14 @@ public class GunBehavior : MonoBehaviour
 
     public void Shoot()
     {
+
         if (nextFire < Time.time)
         {
             BulletBehavior b = Instantiate(bulletPrefab, transform.position, Quaternion.identity, bulletBucket).GetComponent<BulletBehavior>();
             b.Setup(transform.up, bulletSpeed, firePower, lifeTime);
             nextFire = Time.time + fireRate;
+
+            if(OnShoot!=null) OnShoot.Invoke();
         }
     }
 

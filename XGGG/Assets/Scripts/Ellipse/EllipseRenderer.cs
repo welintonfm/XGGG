@@ -35,6 +35,6 @@ public class EllipseRenderer : MonoBehaviour
 
     private void OnValidate()
     {
-        CalculateEllipse();
+        //CalculateEllipse();
     }
 }
