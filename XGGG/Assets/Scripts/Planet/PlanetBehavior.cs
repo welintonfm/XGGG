@@ -23,6 +23,8 @@ public class PlanetBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!LevelController.Instance.GameRunnig)
+            return;
         UpdatePosition();
     }
 
@@ -42,4 +44,14 @@ public class PlanetBehavior : MonoBehaviour
         transform.localPosition = orbit.Evaluate(progress);
         cTime += Time.deltaTime;
     }
+
+
+    public void DestroyPlanet(){
+        Invoke("DestroyGameObject", 2f);
+    }
+
+    public void DestroyGameObject(){
+        Destroy(gameObject);
+    }
+
 }

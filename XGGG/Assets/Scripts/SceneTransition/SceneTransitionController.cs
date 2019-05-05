@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 public class SceneTransitionController : MonoBehaviour
 {
+    public UnityEvent OnSceneLoaded;
     public UnityEvent OnEndFadeIn;
     private string sceneName;
 
@@ -20,6 +21,12 @@ public class SceneTransitionController : MonoBehaviour
     public void EndFadeIn(){
         if(OnEndFadeIn != null){
             OnEndFadeIn.Invoke();
+        }
+    }
+
+    public void SceneLoaded(){
+        if(OnSceneLoaded != null){
+            OnSceneLoaded.Invoke();
         }
     }
 }

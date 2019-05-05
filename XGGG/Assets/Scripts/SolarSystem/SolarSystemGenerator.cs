@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 public class SolarSystemGenerator : MonoBehaviour
 {
 
@@ -38,6 +39,9 @@ public class SolarSystemGenerator : MonoBehaviour
     public GameObject[] middleOrbits;
     public GameObject[] coldOrbits;
 
+    [Header("Life Sliders")]
+    public Slider[] sliders;
+
 
     public void GenerateLevel()
     {
@@ -71,6 +75,7 @@ public class SolarSystemGenerator : MonoBehaviour
         planetBehavior.orbit.xAxis = ellipseRenderer.ellipse.xAxis;
         planetBehavior.orbit.yAxis = ellipseRenderer.ellipse.yAxis;
         planetBehavior.Setup();
+        planetBehavior.GetComponent<LifeBehaviour>().SetSlider(sliders[0]);
 
         planetBehavior = Instantiate(middlePlanet, Vector3.zero, Quaternion.identity, planetBucket).GetComponent<PlanetBehavior>();
         ellipseRenderer = Instantiate(middleOrbit, Vector3.zero, Quaternion.identity, orbitBucket).GetComponent<EllipseRenderer>();
@@ -79,6 +84,7 @@ public class SolarSystemGenerator : MonoBehaviour
         planetBehavior.orbit.xAxis = ellipseRenderer.ellipse.xAxis;
         planetBehavior.orbit.yAxis = ellipseRenderer.ellipse.yAxis;
         planetBehavior.Setup();
+        planetBehavior.GetComponent<LifeBehaviour>().SetSlider(sliders[1]);
 
         planetBehavior = Instantiate(coldPlanet, Vector3.zero, Quaternion.identity, planetBucket).GetComponent<PlanetBehavior>();
         ellipseRenderer = Instantiate(coldOrbit, Vector3.zero, Quaternion.identity, orbitBucket).GetComponent<EllipseRenderer>();
@@ -87,6 +93,9 @@ public class SolarSystemGenerator : MonoBehaviour
         planetBehavior.orbit.xAxis = ellipseRenderer.ellipse.xAxis;
         planetBehavior.orbit.yAxis = ellipseRenderer.ellipse.yAxis;
         planetBehavior.Setup();
+        planetBehavior.GetComponent<LifeBehaviour>().SetSlider(sliders[2]);
+
+
 
     }
 

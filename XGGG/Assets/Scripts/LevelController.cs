@@ -39,7 +39,8 @@ public class LevelController : MonoBehaviour
         if(GameRunnig){
             for (int i = 0; i < planets.Count; i++)
             {
-                if(planets[i].GetComponent<LifeBehaviour>().GetHealth() <= 0){
+                
+                if(planets[i].GetComponent<LifeBehaviour>() == null || planets[i].GetComponent<LifeBehaviour>().GetHealth() <= 0){
                     planets.RemoveAt(i);
                 }
 
@@ -48,7 +49,7 @@ public class LevelController : MonoBehaviour
                 }
             }
 
-            if(star.GetHealth() == 0){
+            if(star == null || star.GetHealth() == 0){
                 EndGame();
             }
         }

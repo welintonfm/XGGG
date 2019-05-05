@@ -11,6 +11,8 @@ public class InGameUIController : MonoBehaviour
     public GameObject SaveScorePopUp;
     public TextMeshProUGUI scoreNumber;
 
+    public GameObject menu;
+
 
     //Gamiarra show
     Animator ssPopUp;
@@ -29,6 +31,7 @@ public class InGameUIController : MonoBehaviour
         else
         {
             Instantiate(LeaderboardWindow, Vector3.zero, Quaternion.identity, canvas.transform);
+            menu.SetActive(true);
         }
     }
 
@@ -44,6 +47,7 @@ public class InGameUIController : MonoBehaviour
             {
                 Instantiate(LeaderboardWindow, Vector3.zero, Quaternion.identity, canvas.transform);
                 Destroy(ssPopUp.gameObject);
+                menu.SetActive(true);
                 ssPopUp = null;
             }
         }

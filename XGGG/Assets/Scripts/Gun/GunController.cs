@@ -79,4 +79,15 @@ public class GunController : MonoBehaviour
         Instance.currentGun.Planet.Select(true);
 
     }
+
+    public static void LostGun(GunBehavior gun){
+        int i = Instance.guns.LastIndexOf(gun);
+        if(i == Instance.gunIndex){
+            Instance.gunIndex = 0;
+            Instance.currentGun = Instance.guns[Instance.gunIndex];
+            Instance.currentGun.Planet.Select(true);
+        }
+        Instance.guns.Remove(gun);
+    }
+
 }

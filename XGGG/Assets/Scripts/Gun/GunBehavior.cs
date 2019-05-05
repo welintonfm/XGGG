@@ -109,4 +109,9 @@ public class GunBehavior : MonoBehaviour
     }
 
 
+    public void OnPlanetDestroy(){
+        GunController.LostGun(this);
+    }
+
+
 }

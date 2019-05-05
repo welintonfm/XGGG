@@ -12,7 +12,6 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private float CooldownTime = 0.0f;
     [SerializeField] private Transform Target = null;
 
-    private Quaternion lastRotation = new Quaternion();
     private float nextBullet = 0.0f;
 
 
@@ -29,6 +28,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (!LevelController.Instance.GameRunnig)
+            return;
+
         if (Target != null)
         {
 
@@ -59,7 +61,7 @@ public class EnemyBehaviour : MonoBehaviour
 
                 if (nextBullet <= Time.time)
                 {
-                    
+
                     myGun.Shoot();
                     nextBullet = Time.time + CooldownTime;
                 }
@@ -93,7 +95,8 @@ public class EnemyBehaviour : MonoBehaviour
         }
     }
 
-    public void Die(){
+    public void Die()
+    {
         Destroy(this.gameObject);
     }
 
