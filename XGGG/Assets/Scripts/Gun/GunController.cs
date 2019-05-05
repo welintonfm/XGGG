@@ -52,9 +52,9 @@ public class GunController : MonoBehaviour
         Instance.currentGun.Stop();
     }
 
-    public static void Shoot()
+    public static bool Shoot()
     {
-        Instance.currentGun.Shoot();
+        return Instance.currentGun.Shoot();
     }
 
     public static void SwitchPlanet(float dir)

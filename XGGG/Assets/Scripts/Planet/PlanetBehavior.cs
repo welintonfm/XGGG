@@ -47,6 +47,7 @@ public class PlanetBehavior : MonoBehaviour
 
 
     public void DestroyPlanet(){
+        ShakeController.GreateShake();
         Invoke("DestroyGameObject", 2f);
     }
 

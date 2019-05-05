@@ -30,7 +30,13 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetButton("Jump"))
         {
-            GunController.Shoot();
+            if(GunController.Shoot()){
+                GunController.Shoot();
+            }
+            ShakeController.SetSmallShake(true);
+        }
+        else{
+            ShakeController.SetSmallShake(false);
         }
 
 
@@ -57,5 +63,6 @@ public class InputManager : MonoBehaviour
     public void SetGettingInput(bool b)
     {
         this.gettingInput = b;
+        GunController.Stop();
     }
 }

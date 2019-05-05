@@ -95,7 +95,7 @@ public class GunBehavior : MonoBehaviour
         state = GunState.idle;
     }
 
-    public void Shoot()
+    public bool Shoot()
     {
 
         if (nextFire < Time.time)
@@ -105,7 +105,11 @@ public class GunBehavior : MonoBehaviour
             nextFire = Time.time + fireRate;
 
             if(OnShoot!=null) OnShoot.Invoke();
+
+            return true;
         }
+
+        return false;
     }
 
 

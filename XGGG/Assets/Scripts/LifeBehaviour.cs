@@ -44,8 +44,10 @@ public class LifeBehaviour : MonoBehaviour
     {
         currentHealth = (currentHealth - amount > 0) ? currentHealth - amount : 0;
 
-        if (slider != null)
+        if (slider != null){
             slider.value = currentHealth;
+            slider.transform.parent.GetComponent<Animator>().SetTrigger("takingDamage");
+        }
 
         if (currentHealth == 0)
         {
@@ -54,6 +56,7 @@ public class LifeBehaviour : MonoBehaviour
                 OnDeath.Invoke();
             }
         }
+        
     }
 
 
