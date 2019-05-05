@@ -19,6 +19,10 @@ public class LifeBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (slider != null){
+            slider.maxValue = maxHealth;
+            slider.value = maxHealth;
+        }
         currentHealth = maxHealth;
     }
 
@@ -56,6 +60,13 @@ public class LifeBehaviour : MonoBehaviour
     public int GetHealth()
     {
         return this.currentHealth;
+    }
+
+
+    public void SetSlider(Slider s){
+        slider = s;
+        slider.maxValue = maxHealth;
+        slider.value = maxHealth;
     }
 
 

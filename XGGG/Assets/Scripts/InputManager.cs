@@ -6,8 +6,12 @@ public class InputManager : MonoBehaviour
 {
     bool shiftedPlanet;
     float verticalInput, horizontalInput;
+
+    bool gettingInput = true;
     void Update()
     {
+        if (!gettingInput) return;
+        
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
 
@@ -47,5 +51,11 @@ public class InputManager : MonoBehaviour
             shiftedPlanet = false;
         }
 
+    }
+
+
+    public void SetGettingInput(bool b)
+    {
+        this.gettingInput = b;
     }
 }
