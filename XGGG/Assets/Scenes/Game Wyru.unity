@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1396,13 +1396,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a42c9c9d97a9004fb897529ce722082, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.24
+  m_Volume: 0.12
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 37
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1892,17 +1892,6 @@ MonoBehaviour:
   OnEndGame:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 898705030}
-        m_MethodName: OnGameEnd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1209937388}
         m_MethodName: SetRunning
         m_Mode: 6
@@ -1917,6 +1906,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1448161499}
         m_MethodName: SetGettingInput
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 898705030}
+        m_MethodName: OnGameEnd
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3469,14 +3469,14 @@ MonoBehaviour:
   sounds:
   - name: shoot1
     clip: {fileID: 8300000, guid: dec9e2b3867b2f64e94afd7503b20748, type: 3}
-    volume: 1
-    pitch: 0
+    volume: 0.42
+    pitch: 0.84
     randomVolume: 0
     randomPitch: 0.1
   - name: shoot2
     clip: {fileID: 8300000, guid: f87da0b133613b542aa141dab6d2df7d, type: 3}
-    volume: 1
-    pitch: 0
+    volume: 0.42
+    pitch: 0.82
     randomVolume: 0
     randomPitch: 0.1
   - name: shoot3
@@ -3522,7 +3522,7 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
   - name: mainTheme
-    clip: {fileID: 8300000, guid: 7a42c9c9d97a9004fb897529ce722082, type: 3}
+    clip: {fileID: 0}
     volume: 0
     pitch: 0
     randomVolume: 0

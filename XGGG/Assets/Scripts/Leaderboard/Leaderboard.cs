@@ -35,6 +35,11 @@ public static class Leaderboard
         }
     }
 
+    public static void Clear(){
+        scores = new List<Score>();
+        Save();
+    }
+
     public static void Save()
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -57,6 +62,7 @@ public static class Leaderboard
             FileStream stream = new FileStream(path, FileMode.Open);
             ScoresData data = formatter.Deserialize(stream) as ScoresData;
             stream.Close();
+            Debug.Log(data.data);
             return new List<Score>(data.data);
         }
 

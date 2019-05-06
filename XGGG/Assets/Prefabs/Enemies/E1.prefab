@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0239226578d27b43a5ff2ac1b3a830e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 6
   slider: {fileID: 0}
   currentHealth: 0
   OnDeath:
