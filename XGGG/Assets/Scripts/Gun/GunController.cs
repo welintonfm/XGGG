@@ -5,6 +5,8 @@ using System;
 
 public class GunController : MonoBehaviour
 {
+    public LineRenderer sightLine;
+    public GameObject aimIcon;
     static GunController _instance;
 
     public static GunController Instance
@@ -29,6 +31,10 @@ public class GunController : MonoBehaviour
 
     bool lostingGun;
 
+    Vector3 target;
+
+    public LayerMask sightIgnoreBulletLayer;
+
     public void Setup()
     {
         guns = new List<GunBehavior>(FindObjectsOfType<GunBehavior>());
@@ -43,12 +49,15 @@ public class GunController : MonoBehaviour
 
     public static void MoveToLeft()
     {
+
         Instance.currentGun.MoveToLeft();
+        
     }
 
     public static void MoveToRight()
     {
         Instance.currentGun.MoveToRight();
+        
     }
 
     public static void Stop()
@@ -114,6 +123,47 @@ public class GunController : MonoBehaviour
         }
         Instance.guns.Remove(gun);
         Instance.lostingGun = false;
+    }
+
+    private void Update() {
+        if(!lostingGun){
+            target = CalcSight();
+            RenderSightLine();
+        }
+        
+    }
+    Vector3 CalcSight(){
+
+        try
+        {
+            sightLine.enabled = true;
+            Ray2D ray = new Ray2D(currentGun.transform.position, currentGun.transform.up );
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(ray.origin, ray.direction, 1000, sightIgnoreBulletLayer);
+
+            if (hit.collider == null)
+            {
+                aimIcon.SetActive(false);
+                return ray.GetPoint(1000);
+            }
+            aimIcon.SetActive(true);
+            return hit.point;
+        }
+        catch (System.Exception)
+        {
+            sightLine.enabled = false;
+            return Vector3.zero;
+        }
+        
+    }
+
+    void RenderSightLine(){
+        if(sightLine.enabled){
+            Vector3[] positions = {currentGun.transform.position, target};
+            sightLine.SetPositions(positions);
+            aimIcon.transform.position = target;
+        }
+        
     }
 
 }
