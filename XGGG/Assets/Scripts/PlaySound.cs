@@ -13,7 +13,6 @@ public class PlaySound : MonoBehaviour
         }
         
         audioManager.PlaySound(clipname);
-        Debug.Log("tocou sonzinho:  teixe, morri");
         return;
     }
 }

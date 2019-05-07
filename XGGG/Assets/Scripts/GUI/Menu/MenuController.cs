@@ -75,7 +75,7 @@ public class MenuController : MonoBehaviour
             pressed = false;
         }
 
-        if (Input.GetAxis("Submit") == 1)
+        if (Input.GetButtonDown("Submit"))
         {
             if(submited == false){
                 Submit(currentIndex);

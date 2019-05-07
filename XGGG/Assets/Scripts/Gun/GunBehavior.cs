@@ -39,19 +39,20 @@ public class GunBehavior : MonoBehaviour
 
     Transform planetTransform;
 
-    public PlanetBehavior Planet{
-        get{
-            return transform.parent.GetComponent<PlanetBehavior>();
-        }
-    }
+    public PlanetBehavior planet;
+
+
     GunState state;
     float nextFire;
 
     Transform bulletBucket;
 
+    private void Awake() {
+        planet = transform.parent.GetComponent<PlanetBehavior>();
+        planetTransform = transform.parent;
+    }
     void Start()
     {
-        planetTransform = transform.parent;
         state = GunState.idle;
         nextFire = Time.time;
 
@@ -98,17 +99,24 @@ public class GunBehavior : MonoBehaviour
     public bool Shoot()
     {
 
-        if (nextFire < Time.time)
+        try
         {
-            BulletBehavior b = Instantiate(bulletPrefab, transform.position, Quaternion.identity, bulletBucket).GetComponent<BulletBehavior>();
-            b.Setup(transform.up, bulletSpeed, firePower, lifeTime, transform.parent);
-            nextFire = Time.time + fireRate;
+            if (nextFire < Time.time)
+            {
+                BulletBehavior b = Instantiate(bulletPrefab, transform.position, Quaternion.identity, bulletBucket).GetComponent<BulletBehavior>();
+                b.Setup(transform.up, bulletSpeed, firePower, lifeTime, transform.parent);
+                nextFire = Time.time + fireRate;
 
-            if(OnShoot!=null) OnShoot.Invoke();
+                if(OnShoot!=null) OnShoot.Invoke();
 
-            return true;
+                return true;
+            }
         }
-
+        catch (System.Exception)
+        {
+            
+        }
+        
         return false;
     }
 

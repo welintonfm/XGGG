@@ -21,14 +21,20 @@ public class EnemyBehaviour : MonoBehaviour
 
     GunBehavior myGun;
 
+    Animator m_Animator;
+
+
+    bool dead = false;
+
     void Awake()
     {
         myGun = GetComponentInChildren<GunBehavior>();
+        m_Animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        if (!LevelController.Instance.GameRunnig)
+        if (!LevelController.Instance.GameRunnig || dead)
             return;
 
         if (Target != null)
@@ -63,6 +69,7 @@ public class EnemyBehaviour : MonoBehaviour
                 {
 
                     myGun.Shoot();
+                    m_Animator.SetTrigger("Shoot");
                     nextBullet = Time.time + CooldownTime;
                 }
             }
@@ -97,9 +104,18 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Die()
     {
-        Destroy(this.gameObject);
+        if (!dead)
+        {
+            dead = true;
+            m_Animator.SetTrigger("Death");
+        }
+
     }
 
+    public void DestroyAnimationEvent()
+    {
+        Destroy(this.gameObject);
+    }
 
 
 }

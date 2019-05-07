@@ -1925,6 +1925,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1922043580}
+        m_MethodName: StopAllCoroutines
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   GameRunnig: 0
@@ -4548,8 +4559,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 8965181368687507298, guid: fabb2da1357f2144899759893032823f, type: 3}
-  - {fileID: 8965181368687507298, guid: aac6933610fd425459b86598f5898d8a, type: 3}
+  - {fileID: 2527536570418144160, guid: 5dbd8cbc408b8c242871c6832964e38d, type: 3}
+  - {fileID: 4046956428076716784, guid: 10be419a234574a4b8e0d90ca08180a7, type: 3}
   spawnPoints:
   - {fileID: 1496149633}
   - {fileID: 945498187}

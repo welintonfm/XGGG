@@ -27,14 +27,18 @@ public class GunController : MonoBehaviour
     GunBehavior currentGun;
     int gunIndex;
 
-    public void Setup(){
+    bool lostingGun;
+
+    public void Setup()
+    {
         guns = new List<GunBehavior>(FindObjectsOfType<GunBehavior>());
-        if(guns.Count == 0){
-           throw new Exception("Theres no gun in scene!");
+        if (guns.Count == 0)
+        {
+            throw new Exception("Theres no gun in scene!");
         }
         currentGun = guns[0];
         gunIndex = 0;
-        currentGun.Planet.Select(true);
+        currentGun.planet.Select(true);
     }
 
     public static void MoveToLeft()
@@ -59,35 +63,57 @@ public class GunController : MonoBehaviour
 
     public static void SwitchPlanet(float dir)
     {
+        if (Instance.lostingGun) return;
+
         Instance.currentGun.Stop();
-        Instance.currentGun.Planet.Select(false);
+        if(Instance.currentGun.planet != null){
+            Instance.currentGun.planet.Select(false);
+        }
 
-
-        if(dir > 0){
+        if (dir > 0)
+        {
             Instance.gunIndex++;
-            if((Instance.gunIndex) == Instance.guns.Count){
+            if ((Instance.gunIndex) == Instance.guns.Count)
+            {
                 Instance.gunIndex = 0;
             }
         }
-        else{
+        else
+        {
             Instance.gunIndex--;
-            if((Instance.gunIndex) == -1){
-                Instance.gunIndex = Instance.guns.Count-1;
+            if ((Instance.gunIndex) < 0)
+            {
+                Instance.gunIndex = Instance.guns.Count - 1;
             }
         }
-        Instance.currentGun = Instance.guns[Instance.gunIndex];
-        Instance.currentGun.Planet.Select(true);
 
+        try
+        {
+
+            Instance.currentGun = Instance.guns[Instance.gunIndex];
+            Instance.currentGun.planet.Select(true);
+        }
+        catch (System.Exception)
+        {
+            if (Instance.guns.Count > 0)
+            {
+                Instance.gunIndex = 0;
+                Instance.currentGun = Instance.guns[Instance.gunIndex];
+                Instance.currentGun.planet.Select(true);
+            }
+        }
     }
 
-    public static void LostGun(GunBehavior gun){
+    public static void LostGun(GunBehavior gun)
+    {
+        Instance.lostingGun = true;
         int i = Instance.guns.LastIndexOf(gun);
-        if(i == Instance.gunIndex){
-            Instance.gunIndex = 0;
-            Instance.currentGun = Instance.guns[Instance.gunIndex];
-            Instance.currentGun.Planet.Select(true);
+        if (i == Instance.gunIndex)
+        {
+            GunController.SwitchPlanet(0);
         }
         Instance.guns.Remove(gun);
+        Instance.lostingGun = false;
     }
 
 }

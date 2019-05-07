@@ -43,4 +43,10 @@ public class TheHuhn : MonoBehaviour
             yield return 0.5f;
         }
     }
+
+    public void OnGameEnd(){
+        this.StopAllCoroutines();
+    }
+
+
 }
