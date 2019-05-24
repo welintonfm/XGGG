@@ -36,6 +36,7 @@ public class BulletBehavior : MonoBehaviour
         ParticleSystem.MainModule mainModule = ps.main;
         mainModule.startColor = particleColorGradient.Evaluate(Random.Range(0f,1f));
         ps.Play();
+        Destroy(ps.gameObject,2f);
         Destroy(gameObject);
     }
 
