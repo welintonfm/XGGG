@@ -38,7 +38,7 @@ PrefabInstance:
     - target: {fileID: 8919018766138624928, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
       propertyPath: orbitPeriod
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8919018766138624928, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
@@ -124,8 +124,14 @@ PrefabInstance:
     - target: {fileID: 3706860474706967610, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3965672028535722138, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: bb160ce680d8c164bbfb3fbd3a7ec2af,
+        type: 2}
     - target: {fileID: 685613850402965364, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
       propertyPath: m_IsActive
@@ -254,12 +260,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 7aec69f137b250740ad29eaa0496fdaa,
         type: 3}
-    - target: {fileID: 3965672028535722138, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: bb160ce680d8c164bbfb3fbd3a7ec2af,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e8e8f9e015b7f54882bc8ac31d39143, type: 3}
 --- !u!1 &5804057235445904286 stripped

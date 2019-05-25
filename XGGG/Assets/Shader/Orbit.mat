@@ -20,6 +20,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs: []
-    m_Floats: []
+    m_Floats:
+    - Vector1_EBB8EE45: 21.7
+    - Vector1_F2B5213E: 1.91
     m_Colors:
     - Color_F737551D: {r: 0, g: 0.21989526, b: 1.9999998, a: 0}

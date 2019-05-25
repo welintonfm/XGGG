@@ -82,5 +82,10 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8965181368687507301, guid: fabb2da1357f2144899759893032823f,
+        type: 3}
+      propertyPath: CooldownTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fabb2da1357f2144899759893032823f, type: 3}

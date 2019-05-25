@@ -25,6 +25,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P3
       objectReference: {fileID: 0}
+    - target: {fileID: 8919018766138624928, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
+        type: 3}
+      propertyPath: orbitPeriod
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1270953518685749956, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,8 +88,14 @@ PrefabInstance:
     - target: {fileID: 3706860474706967610, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3965672028535722138, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 57eac98e11300a342af6ecf4ba9d7e8e,
+        type: 2}
     - target: {fileID: 1270953519364113868, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
       propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -110,12 +121,6 @@ PrefabInstance:
       propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: shoot2
       objectReference: {fileID: 0}
-    - target: {fileID: 3965672028535722138, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 22100000, guid: 57eac98e11300a342af6ecf4ba9d7e8e,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e8e8f9e015b7f54882bc8ac31d39143, type: 3}
 --- !u!1 &6242087737439571568 stripped
