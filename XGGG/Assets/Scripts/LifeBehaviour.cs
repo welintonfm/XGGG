@@ -16,6 +16,8 @@ public class LifeBehaviour : MonoBehaviour
 
     public UnityEvent OnDeath;
 
+    bool dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,12 +51,13 @@ public class LifeBehaviour : MonoBehaviour
             slider.transform.parent.GetComponent<Animator>().SetTrigger("takingDamage");
         }
 
-        if (currentHealth == 0)
+        if (currentHealth == 0 && !dead)
         {
             if (OnDeath != null)
             {
                 OnDeath.Invoke();
             }
+            dead = true;
         }
         
     }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class BulletBehavior : MonoBehaviour
 {
+    public GameObject collisionParticles;
+    public Gradient particleColorGradient;
     Transform father;
     float power;
     Vector3 direction;
@@ -30,6 +32,11 @@ public class BulletBehavior : MonoBehaviour
 
     private void Vanish()
     {
+        ParticleSystem ps = Instantiate(collisionParticles, transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+        ParticleSystem.MainModule mainModule = ps.main;
+        mainModule.startColor = particleColorGradient.Evaluate(Random.Range(0f,1f));
+        ps.Play();
+        Destroy(ps.gameObject,2f);
         Destroy(gameObject);
     }
 

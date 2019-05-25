@@ -24,7 +24,7 @@ public class InGameUIController : MonoBehaviour
     public void OnGameEnd()
     {
         // Is a Top Score
-        if (ScoreSystem.Instance.Score > Leaderboard.Scores[Leaderboard.Scores.Count - 1].value || Leaderboard.Scores.Count < 10)
+        if (Leaderboard.Scores.Count == 0 || Leaderboard.Scores.Count < 10 || ScoreSystem.Instance.Score > Leaderboard.Scores[Leaderboard.Scores.Count - 1].value )
         {
             ssPopUp = Instantiate(SaveScorePopUp, Vector3.zero, Quaternion.identity, canvas.transform).GetComponent<Animator>();
         }

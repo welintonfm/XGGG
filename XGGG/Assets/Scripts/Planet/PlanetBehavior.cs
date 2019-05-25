@@ -47,8 +47,8 @@ public class PlanetBehavior : MonoBehaviour
 
 
     public void DestroyPlanet(){
-        ShakeController.GreateShake();
-        Invoke("DestroyGameObject", 2f);
+        GetComponent<Animator>().SetTrigger("Die");
+        Invoke("DestroyGameObject", .4f);
     }
 
     public void DestroyGameObject(){

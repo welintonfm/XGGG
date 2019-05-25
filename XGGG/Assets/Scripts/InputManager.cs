@@ -30,15 +30,8 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetButton("Jump"))
         {
-            if(GunController.Shoot()){
-                GunController.Shoot();
-            }
-            ShakeController.SetSmallShake(true);
+            GunController.Shoot();
         }
-        else{
-            ShakeController.SetSmallShake(false);
-        }
-
 
         if (verticalInput > 0.1)
         {
