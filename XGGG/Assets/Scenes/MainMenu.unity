@@ -1625,7 +1625,7 @@ PrefabInstance:
     - target: {fileID: 1016764141105057282, guid: 754fc2e3217ba5b4ebf2cfd02975d073,
         type: 3}
       propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Game
+      value: Game Wyru
       objectReference: {fileID: 0}
     - target: {fileID: 5356752633915837891, guid: 754fc2e3217ba5b4ebf2cfd02975d073,
         type: 3}

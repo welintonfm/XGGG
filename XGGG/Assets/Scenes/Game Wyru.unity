@@ -409,11 +409,11 @@ MonoBehaviour:
   planetBucket: {fileID: 1514281013}
   orbitBucket: {fileID: 1672583360}
   hotPlanets:
-  - {fileID: 6242087737439571568, guid: 25362ead7ffa22b4784e0c0b2fb409f9, type: 3}
-  middlePlanets:
   - {fileID: 5804057235445904286, guid: 81f3fc8010964794b8b4ad520fa75932, type: 3}
-  coldPlanets:
+  middlePlanets:
   - {fileID: 5531338303835357366, guid: 37727cfb126fbc34d9ec02b171a49fe9, type: 3}
+  coldPlanets:
+  - {fileID: 6242087737439571568, guid: 25362ead7ffa22b4784e0c0b2fb409f9, type: 3}
   hotOrbits:
   - {fileID: 1718989872692433508, guid: f05e7356d409519428c10ad45e79da6f, type: 3}
   middleOrbits:
@@ -4750,7 +4750,7 @@ PrefabInstance:
     - target: {fileID: 1016764141105057282, guid: 754fc2e3217ba5b4ebf2cfd02975d073,
         type: 3}
       propertyPath: OnPressed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Game
+      value: Game Wyru
       objectReference: {fileID: 0}
     - target: {fileID: 5356752633915837891, guid: 754fc2e3217ba5b4ebf2cfd02975d073,
         type: 3}

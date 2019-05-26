@@ -28,7 +28,7 @@ PrefabInstance:
     - target: {fileID: 8919018766138624928, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
       propertyPath: orbitPeriod
-      value: 10
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1270953518685749956, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
@@ -88,7 +88,7 @@ PrefabInstance:
     - target: {fileID: 3706860474706967610, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
       propertyPath: maxHealth
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3965672028535722138, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
         type: 3}
@@ -120,6 +120,26 @@ PrefabInstance:
         type: 3}
       propertyPath: OnShoot.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: shoot2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270953519364113868, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270953519364113868, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
+        type: 3}
+      propertyPath: fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270953519364113868, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
+        type: 3}
+      propertyPath: firePower
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270953519364113868, guid: 9e8e8f9e015b7f54882bc8ac31d39143,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e8e8f9e015b7f54882bc8ac31d39143, type: 3}
